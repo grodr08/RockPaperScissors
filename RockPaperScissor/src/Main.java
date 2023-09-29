@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
     printIntroToGame();
-    System.out.println(arrayOfAnswers());
+    askForUserInput();
 
     }
 
@@ -15,10 +15,13 @@ public class Main {
         System.out.println("What is your name:");
         userName = scanner.next();
 
-        System.out.println("Welcome " + userName + "!!!");
-        System.out.println("This is a Rock Paper Scissor game.");
-        System.out.println("Your objective is to beat the computer.");
-        System.out.println("The first one to get three points wins.");
+        // Intro to the Game & Explains the points system
+        System.out.println("||----------------------------------------||");
+        System.out.println("|| Welcome " + userName + "!!!                         ||");
+        System.out.println("|| This is a Rock Paper Scissor game.     ||");
+        System.out.println("|| Your objective is to beat the computer.||");
+        System.out.println("|| The first one to get three points wins.||");
+        System.out.println("||----------------------------------------||");
     }
 
     public static String arrayOfAnswers() {
@@ -32,5 +35,22 @@ public class Main {
 
         // Get the random string from the array
         return rockPaperScissorArray[randomIndex];
+    }
+
+    public static void askForUserInput() {
+        String computerAnswer = arrayOfAnswers();
+        String userAnswer;
+        int computerPoints;
+        int userPoints;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println();
+        System.out.println("---------------------------------------------------------");
+        System.out.println("Time to start playing!!!");
+        System.out.println("You must choose between 'Rock', 'Paper' and 'Scissor':");
+        userAnswer = scanner.next();
+
+
+
     }
 }

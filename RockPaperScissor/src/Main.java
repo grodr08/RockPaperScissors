@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -6,6 +7,7 @@ public class Main {
 
     printIntroToGame();
     askForUserInput();
+    compareValues();
 
     }
 
@@ -26,7 +28,7 @@ public class Main {
 
     public static String arrayOfAnswers() {
         // Array containing the 3 answers
-        String[] rockPaperScissorArray = {"Rock", "Paper", "Scissor"};
+        String[] rockPaperScissorArray = {"rock", "paper", "scissor"};
 
         Random random = new Random();
 
@@ -37,20 +39,36 @@ public class Main {
         return rockPaperScissorArray[randomIndex];
     }
 
-    public static void askForUserInput() {
-        String computerAnswer = arrayOfAnswers();
+    public static String askForUserInput() {
         String userAnswer;
-        int computerPoints;
-        int userPoints;
 
+        // Asks the user for input and stores the value in userAnswer
         Scanner scanner = new Scanner(System.in);
         System.out.println();
         System.out.println("---------------------------------------------------------");
         System.out.println("Time to start playing!!!");
-        System.out.println("You must choose between 'Rock', 'Paper' and 'Scissor':");
-        userAnswer = scanner.next();
 
+        do {
+            System.out.println("You must choose between 'Rock', 'Paper' or 'Scissor':");
+            userAnswer = scanner.next().toLowerCase();
+        }
+        while (userAnswer.equals("rock") || userAnswer.equals("paper") || userAnswer.equals("scissor"));
 
+        return userAnswer = scanner.next();
+    }
 
+    public static void compareValues() {
+        String computerAnswer = arrayOfAnswers();
+        String userAnswer = askForUserInput();
+
+        int computerPoints = 0;
+        int userPoints = 0;
+
+//        while (computerPoints < 3 || userPoints < 3) {
+//
+//        }
+
+        System.out.println(computerAnswer);
+        System.out.println(userAnswer);
     }
 }

@@ -5,8 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
     printIntroToGame();
-    compareValues();
-
+    compareValuesAndPrintWinner();
     }
 
     public static void printIntroToGame() {
@@ -24,6 +23,7 @@ public class Main {
         System.out.println("The first one to get three points wins.");
         System.out.println(line);
     }
+
 
     public static String arrayOfAnswers() {
         // Array containing the 3 answers
@@ -57,7 +57,7 @@ public class Main {
         return userAnswer;
     }
 
-    public static void compareValues() {
+    public static void compareValuesAndPrintWinner() {
 
         int computerPoints = 0;
         int userPoints = 0;
@@ -67,6 +67,7 @@ public class Main {
             String userAnswer = askForUserInput();
             System.out.println(computerAnswer);
 
+            // Compares the user's input and the computer's random value and gives a point to whoever won the round
             if (computerAnswer.equals("rock") && userAnswer.equals("paper")) {
                 userPoints++;
             }
@@ -97,6 +98,25 @@ public class Main {
 
             System.out.println("User Points: " + userPoints);
             System.out.println("Computer Points: " + computerPoints);
+        }
+
+        if (userPoints == 3) {
+            System.out.println("__________________________________________");
+            System.out.println(" HEYYY CONGRATULATIONS!!!");
+            System.out.println(" YOU HAVE WON AGAINST THE COMPUTER.");
+            System.out.println(" GOOD JOB");
+            System.out.println("""
+                     IF YOU WANT TO PLAY AGAIN HIT THE PLAY
+                     BUTTON AT THE TOP RIGHT OF THE PROGRAM
+                    __________________________________________""");
+        }
+        else {
+            System.out.println("__________________________________________");
+            System.out.println(" SORRY :(");
+            System.out.println(" YOU HAVE LOST AGAINST THE COMPUTER.");
+            System.out.println(" YOU CAN TRY AGAIN BY HITTING THE PLAY\n" +
+                               " BUTTON AT THE TOP RIGHT OF THE PROGRAM");
+            System.out.println("__________________________________________");
         }
     }
 }
